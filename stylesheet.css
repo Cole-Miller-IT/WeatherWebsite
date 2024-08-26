@@ -1,0 +1,86 @@
+
+
+.container {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 1.5fr 0.2fr;
+}
+
+body {
+    /*Apply a dark overlay over the actual image*/
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)),
+        url("backgroundImg.avif");
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+}
+
+/*Search form area*/
+.searchForm {
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#locationInput {
+    margin-top: 6em;
+    width: 80%;
+    height: 40px;
+}
+
+#searchButton {
+    cursor: pointer;
+    width: 25%;
+    min-width: 60px;
+    margin: 10px;
+    padding: 5px;
+    background-color: #007BFF;
+    color: #f0ecec;
+    border: none;
+    border-radius: 5px;
+}
+
+
+/*Today's forecast*/
+#weatherPic {
+    max-width: 300px;
+    max-height: 300px;
+}
+
+#test {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.todaysForecast {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#weatherStats {
+    display: grid;
+    grid-template-columns:  1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 10px;
+    background-color:rgba(240, 248, 255, 0.555);
+}
+
+
+/*Footer*/
+footer {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding-right: 20px;
+    color: aliceblue;
+}

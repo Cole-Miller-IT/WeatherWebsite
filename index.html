@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Weather App</title>
+        <link rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="searchForm">
+                <input type="text" id="locationInput" placeholder="Search City">
+                <button id="searchButton">Search</button>
+            </div>
+            <div class="todaysForecast">
+                <div id="test">
+                    <img id="weatherPic" src="backgroundImg.avif">
+                </div>
+                <div id="weatherStats">
+                    <h2 id="location">location</h2>
+                    <p id="lat">lat</p>
+                    <p id="lon">lon</p>
+                    <p id="temperature">temp</p>
+                    <p id="description">descr</p>
+                    <p id="humidity">humd</p>
+                    <p id="windSpeed">wind Speed</p>
+                </div>
+            </div>
+            <footer>
+                Created By Cole Miller
+            </footer>
+        </div>
+        <script src="getWeatherInfo.js"></script>
+    </body>
+</html>
