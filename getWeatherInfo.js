@@ -3,7 +3,16 @@ const apiKey = "6de9104fa4226eae672905b96492b500" //My key here
 
 const locationInput = document.getElementById("locationInput")
 const searchButton = document.getElementById("searchButton")
+
+const imgEl = document.getElementById("weatherPic")
+const locationEl = document.getElementById("location")
+const latEl = document.getElementById("lat")
+const lonEl = document.getElementById("lon")
 const temperatureEl = document.getElementById("temperature")
+const descEl = document.getElementById("description")
+const humidityEl = document.getElementById("humidity")
+const windSpeedEl = document.getElementById("windSpeed")
+
 
 //Add a click function to the search button that takes our location and gets the weather for that city
 searchButton.addEventListener('click', () => {
@@ -38,22 +47,31 @@ async function geoCode(location) {
     }
 }
 
-//Uses the lat and lon data from the previous request and gets the city weather data
+//Uses the lat and lon data from the previous request and get the city weather data
 //https://openweathermap.org/current
 async function fetchWeather(lat, lon) {
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`
-    //console.log(url)
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
+    console.log(url)
 
     try {
         const response = await fetch(url);
         const data = await response.json();
 
         if (data) {
-            //Change html element text content here
-            temperatureEl.textContent = `${Math.round(data.main.temp)}°C`;
+            //Un-hide html elements
+            document.getElementById("today").style.display = "grid";
 
-            //
-            changeWeatherImage()
+            //Change html element text content here
+            locationEl.textContent = `City: ${locationInput.value}`;
+            latEl.textContent = `Latitude: ${lat}`;
+            lonEl.textContent = `Longitude: ${lon}`;
+            temperatureEl.textContent = `Temperature: ${Math.round(data.main.temp)}°C`;
+            descEl.textContent = `Weather: ${data.weather[0].description}`
+            humidityEl.textContent = `Humidity: ${data.main.humidity}`
+            windSpeedEl.textContent = `Wind Speed: ${data.wind.speed}`
+
+            const icon = data.weather[0].icon
+            imgEl.src = `https://openweathermap.org/img/wn/${icon}@2x.png`
 
         } else {
             throw new Error("No location data found");
@@ -62,8 +80,4 @@ async function fetchWeather(lat, lon) {
         console.error('Error fetching location data:', error);
         return null;
     }
-}
-
-function changeWeatherImage(desc) {
-    console.log("")
 }

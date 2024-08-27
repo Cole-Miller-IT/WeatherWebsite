@@ -1,4 +1,6 @@
-
+* {
+    --numStats: 7
+}
 
 .container {
     display: grid;
@@ -48,8 +50,8 @@ body {
 
 /*Today's forecast*/
 #weatherPic {
-    max-width: 300px;
-    max-height: 300px;
+    width: 400px;
+    height: 400px;
 }
 
 #test {
@@ -61,6 +63,8 @@ body {
 .todaysForecast {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    display: none;
+    margin-left: 5%;
 }
 
 #weatherStats {
@@ -71,7 +75,7 @@ body {
     border-radius: 5px;
     padding-left: 10px;
     padding-right: 10px;
-    margin-right: 10px;
+    margin-right: 30px;
     background-color:rgba(240, 248, 255, 0.555);
 }
 
@@ -80,7 +84,14 @@ body {
 footer {
     display: flex;
     justify-content: right;
-    align-items: center;
+    align-items:end;
     padding-right: 20px;
     color: aliceblue;
+}
+
+@media only screen and (max-width: 550px) {
+    .todaysForecast {
+        grid-template-columns: 1fr;
+        
+    }
 }
